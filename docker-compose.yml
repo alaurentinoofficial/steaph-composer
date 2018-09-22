@@ -20,16 +20,19 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:                                                                                                                                                                                                
       - /var/run/docker.sock:/var/run/docker.sock
-  steaph-api:
-    build: ./../steaph-api/
-    ports:
-      - "8080:8080"
-    links:
-      - mongo
-      - kafka
-  steaph-module-connector:
-    build: ./../steaph-module-connector/
-    links:
-      - kafka
-    depends_on:
-      - steaph-api
+  # steaph-api:
+  #   build: ./../steaph-api/
+  #   ports:
+  #     - "8080:8080"
+  #   links:
+  #     - mongo
+  #     - kafka
+  #   depends_on:
+  #     - mongo
+  #     - kafka
+  # steaph-module-connector:
+  #   build: ./../steaph-module-connector/
+  #   links:
+  #     - kafka
+  #   depends_on:
+  #     - steaph-api
